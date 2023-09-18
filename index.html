@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spotify Control</title>
+</head>
+<body>
+    <h1>Spotify Control</h1>
+    <button id="play">Play</button>
+    <button id="pause">Pause</button>
+    <button id="next">Next Track</button>
+    <button id="prev">Previous Track</button>
+</body>
+<script>
+    // Function to handle the callback and store the token
+    function handleCallback() {
+        const urlParams = new URLSearchParams(window.location.hash.substr(1));
+        const accessToken = urlParams.get('access_token');
+        if (accessToken) {
+            localStorage.setItem('spotifyToken', accessToken);
+            window.location.hash = '';
+        }
+    }
+
+    // Call the function to handle the callback
+    handleCallback();
+</script>
+
+</html>
